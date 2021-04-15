@@ -1,0 +1,12 @@
+@mixin down-arrow($width: 8px, $color: red) {
+  border-top: $width $color solid;
+  border-left: $width transparent solid;
+  border-right: $width transparent solid;
+  border-bottom: $width transparent solid;
+}
+
+@mixin card-head-bg() {
+  border: #00ceff 1px solid;
+  background: linear-gradient(to right, #000ac3 70%, #0073d5);
+  box-shadow: #00ceff 2px 1px 10px 2px inset;
+}
