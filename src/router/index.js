@@ -9,7 +9,7 @@ const rootRoute = {
   path: '/',
   name: 'Home',
   component: Index,
-  redirect: '/monitorHall',
+  redirect: '/data-manage/list',
   meta: {
     title: '首页'
   }
@@ -39,7 +39,7 @@ const routes = [
     name: 'DataManage',
     component: Index,
     redirect: '/data-manage/list',
-    meta: { title: '数据管理', icon: 'find' },
+    meta: { title: '数据管理', icon: 'md-cloud-upload' },
     children: [
       // 二级标签页
       // 情报发现模块
@@ -68,7 +68,7 @@ const routes = [
     name: 'UserAnalysis',
     component: Index,
     redirect: '/user-analysis/index',
-    meta: { title: '用户统计', icon: 'user' },
+    meta: { title: '用户统计', icon: 'md-person' },
     children: [
       {
         path: '/user-analysis/index',
@@ -112,7 +112,7 @@ const routes = [
     path: '/platform-analysis',
     name: 'PlatformAnalysis',
     component: Index,
-    meta: { title: '平台统计', icon: 'platform' },
+    meta: { title: '平台统计', icon: 'md-cloud' },
     children: [
       {
         path: '/platform-analysis/commodity',
@@ -156,7 +156,7 @@ const routes = [
     path: '/sys',
     name: 'System',
     component: Index,
-    meta: { title: '系统管理', icon: 'setting' },
+    meta: { title: '系统管理', icon: 'md-settings' },
     children: [
       {
         path: '/sys/user',

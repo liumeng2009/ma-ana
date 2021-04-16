@@ -10,3 +10,7 @@
   background: linear-gradient(to right, #000ac3 70%, #0073d5);
   box-shadow: #00ceff 2px 1px 10px 2px inset;
 }
+
+@mixin page-container-border-radius($size: 8px) {
+  border-radius: $size;
+}

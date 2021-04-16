@@ -1,10 +1,8 @@
 <template>
   <div class="header-wrapper">
-    <img class="logo" :src="logo" alt="logo" />
+    <div class="title">{{ title }}</div>
     <div class="action">
       <UserDropDown />
-      <Notify />
-      <FullScreen style="margin-right: 32px" />
     </div>
   </div>
 </template>
@@ -23,6 +21,7 @@
     },
     data() {
       return {
+        title: process.env.VUE_APP_MA_TITLE,
         logo: Logo
       };
     }
@@ -33,15 +32,22 @@
   @import '@/style/config.scss';
   .header-wrapper {
     position: relative;
-    height: 99px;
-    background: url(~@/assets/img/bg.png) no-repeat center 0;
+    height: $header-height;
+    background: #232f6d;
+
+    .title {
+      font-family: 幼圆;
+      font-size: 18px;
+      color: #3793eb;
+      padding-left: 54px;
+      line-height: $header-height;
+    }
 
     .logo {
       position: absolute;
       width: 394px;
       height: 64px;
       top: 50%;
-      left: 50%;
       transform: translate(-182px, -32px);
     }
     .action {
@@ -54,7 +60,6 @@
       padding-right: 12px;
       align-items: center;
       flex-direction: row-reverse;
-      background: url('~@/assets/img/Top-r.png') no-repeat 10px -5px;
     }
   }
 </style>

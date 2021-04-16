@@ -1,5 +1,5 @@
 import { ACCESS_TOKEN } from '@/store/mutation-types';
-import { login, getAuth, getInfo } from '@/api/login';
+import { login, getInfo } from '@/api/login';
 import storage from 'store';
 import message from 'view-design/src/components/message';
 
@@ -50,6 +50,8 @@ const user = {
         });
         getInfo().then(res => {
           const userInfo = res.result;
+          message.destroy();
+          /*
           getAuth().then(auths => {
             message.destroy();
             if (auths.result && auths.result.menu && auths.result.menu.length > 0) {
@@ -70,7 +72,9 @@ const user = {
           }).catch(err => {
             message.destroy();
             reject(err);
-          });
+          }); */
+          commit('SET_INFO', userInfo);
+          resolve(res);
         }).catch(err => {
           message.destroy();
           reject(err);

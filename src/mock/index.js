@@ -4,6 +4,8 @@ if (process.env.VUE_APP_PREVIEW) {
 
   const Mock = require('mockjs');
   require('./services/user');
+  require('./services/dataManage/importList');
+  require('./services/userAnalysis/basic');
 
   Mock.setup({
     timeout: 800

@@ -40,7 +40,7 @@
     }
 
     .badge {
-      color: $font-color-blue;
+      color: $primary-color;
       font-size: 24px;
       height: $header-height;
       padding: 31px 0px;

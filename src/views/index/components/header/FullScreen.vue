@@ -86,7 +86,7 @@
       width: 24px;
       height: 24px;
       padding: 2px;
-      border: 2px solid $font-color-blue;
+      border: 2px solid $primary-color;
       cursor: pointer;
 
       svg {

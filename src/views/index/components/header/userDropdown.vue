@@ -59,13 +59,12 @@
     display: flex;
     height: $header-height;
     min-width: 100px;
-    padding: 0 10px 10px 10px;
     margin-left: 80px;
     overflow: hidden;
     font-size: 12px;
     cursor: pointer;
     align-items: center;
-    color: $font-color-blue;
+    color: $font-color-white;
 
     .avatar {
       width: 32px;
@@ -77,9 +76,9 @@
     .arrow {
       width: 0px;
       height: 0px;
-      margin-left: 12px;
+      margin-left: 8px;
       margin-top: 6px;
-      @include down-arrow($width: 6px, $color: $font-color-blue);
+      @include down-arrow($width: 6px, $color: $font-color-white);
     }
   }
 </style>

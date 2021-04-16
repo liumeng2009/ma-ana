@@ -1,1 +1,1 @@
-export const ACCESS_TOKEN = 'AQ-Access-Token';
+export const ACCESS_TOKEN = 'MA-Access-Token';

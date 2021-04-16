@@ -44,7 +44,8 @@ import {
   Radio,
   Cascader,
   Select,
-  Option
+  Option,
+  Breadcrumb
 } from 'view-design';
 
 Vue.component('Select', Select);
@@ -93,6 +94,8 @@ Vue.component('FormItem', FormItem);
 Vue.component('Spin', Spin);
 Vue.component('Collapse', Collapse);
 Vue.component('CollapsePanel', Collapse.Panel);
+Vue.component('Breadcrumb', Breadcrumb);
+Vue.component('BreadcrumbItem', Breadcrumb.Item);
 
 Vue.prototype.$message = Message;
 Vue.prototype.$notice = Notice;

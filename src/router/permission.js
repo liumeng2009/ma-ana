@@ -6,7 +6,7 @@ import notification from 'view-design/src/components/notice';
 import '@/components/nprogress/nprogress.scss';
 import { setDocumentTitle, domTitle } from '@/utils/domUtil';
 import { ACCESS_TOKEN } from '@/store/mutation-types';
-import { filterAsyncRouter } from '@/utils/utils';
+// import { filterAsyncRouter } from '@/utils/utils';
 import { routes, resetRouter } from '@/router/index';
 
 const defaultRoutePath = '/monitorHall';
@@ -20,11 +20,12 @@ router.beforeEach((to, from, next) => {
   NProgress.start();
   to.meta && (typeof to.meta.title !== 'undefined' && setDocumentTitle(`${to.meta.title} - ${domTitle}`));
   if (storage.get(ACCESS_TOKEN)) {
+    console.log('这里');
     if (to.path === '/login') {
       next({ path: defaultRoutePath });
       NProgress.done();
     } else {
-      if (store.getters.roles.length === 0) {
+      if (!store.getters.userInfo.id) {
         store.dispatch('GetInfo').then(res => {
           // console.log(res);
           notification.success({
@@ -32,11 +33,11 @@ router.beforeEach((to, from, next) => {
             // desc: err + ', 即将跳转到登录页'
             desc: `${res.result.sysUserName}, 欢迎回来`
           });
-          const accessedRouters = filterAsyncRouter(routes, store.getters.roles);
+          // const accessedRouters = filterAsyncRouter(routes, store.getters.roles);
           // console.log(accessedRouters);
-          store.commit('SET_ROUTES', accessedRouters);
+          store.commit('SET_ROUTES', routes);
           resetRouter(router);
-          router.addRoutes(accessedRouters);
+          router.addRoutes(routes);
         }).catch(() => {
           // 失败时，获取用户信息失败时，调用登出，来清空历史保留信息
           setTimeout(() => {

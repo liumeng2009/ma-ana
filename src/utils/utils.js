@@ -25,6 +25,21 @@ export function filterAsyncRouter (routerMap, roles) {
   return accessedRouters;
 }
 
+export function findRouteFather (name, routes) {
+  let result = {};
+  routes.forEach(ele => {
+    console.log(ele);
+    if (ele.children) {
+      const hasArray = ele.children.filter(ele => ele.name === name);
+      console.log(hasArray);
+      if (hasArray.length > 0) {
+        result = ele;
+      }
+    }
+  });
+  return result;
+}
+
 export function getScrollTop() {
   let scrollTop = 0;
   let bodyScrollTop = 0;

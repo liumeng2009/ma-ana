@@ -5,16 +5,12 @@
         <CusHeader />
       </Header>
       <Layout>
-        <Sider
-          :collapsible="false"
-          v-model="isCollapse"
-          width="270"
-          style="background: #101129; height: 100%; overflow-y: auto"
-        >
+        <Sider :collapsible="false" v-model="isCollapse" width="170" style="background: #172562; height: 100%; overflow-y: auto">
           <LeftMenu />
         </Sider>
         <Layout>
-          <Content style="height: 100%; overflowy: scroll; overflowx: hidden; padding: 8px">
+          <Content style="height: 100%; overflowy: scroll; overflowx: hidden; padding: 8px 16px 16px 16px">
+            <CusBreadCrumb />
             <transition name="route-change" mode="out-in" appear>
               <keep-alive v-if="isKeepAlive">
                 <router-view></router-view>
@@ -35,12 +31,14 @@
 <script>
   import LeftMenu from './components/menu';
   import CusHeader from './components/header';
+  import CusBreadCrumb from './components/breadcrumb';
 
   export default {
     name: 'Index',
     components: {
       LeftMenu,
-      CusHeader
+      CusHeader,
+      CusBreadCrumb
     },
     data() {
       return {

@@ -1,6 +1,6 @@
 /* Make clicks pass-through */
 @import '@/style/config.scss';
-$nprogress-primary-color: $font-color-blue;
+$nprogress-primary-color: $primary-color;
 
 #nprogress {
   pointer-events: none;

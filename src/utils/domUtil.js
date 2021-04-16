@@ -16,4 +16,4 @@ export const setDocumentTitle = function (title) {
   }
 };
 
-export const domTitle = process.env.VUE_APP_AQ_TITLE;
+export const domTitle = process.env.VUE_APP_MA_TITLE;
