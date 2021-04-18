@@ -9,7 +9,7 @@
           <LeftMenu />
         </Sider>
         <Layout>
-          <Content style="height: 100%; overflowy: scroll; overflowx: hidden; padding: 8px 16px 16px 16px">
+          <Content style="min-height: 600px; overflowy: scroll; overflowx: hidden; padding: 8px 16px 16px 16px">
             <CusBreadCrumb />
             <transition name="route-change" mode="out-in" appear>
               <keep-alive v-if="isKeepAlive">
@@ -69,29 +69,29 @@
 </script>
 
 <style lang="scss">
-  .layout {
+.layout {
+  height: 100%;
+
+  .ivu-layout {
     height: 100%;
 
-    .ivu-layout {
-      height: 100%;
-
-      &.ivu-layout-has-sider {
-        // min-height: 600px;
-        height: calc(100% - 99px);
-      }
+    &.ivu-layout-has-sider {
+      // min-height: 600px;
+      height: calc(100% - 99px);
     }
   }
-  .layout-footer-center {
-    width: 80%;
-    bottom: 0px;
-    padding: 8px 0px;
-    text-align: center;
-  }
-  .route-change-enter-active,
-  .route-change-leave-active {
-    transition: all 0.2s;
-  }
-  .route-change-enter {
-    transform: translate3d(20%, 0, 0);
-  }
+}
+.layout-footer-center {
+  width: 80%;
+  bottom: 0px;
+  padding: 8px 0px;
+  text-align: center;
+}
+.route-change-enter-active,
+.route-change-leave-active {
+  transition: all 0.2s;
+}
+.route-change-enter {
+  transform: translate3d(20%, 0, 0);
+}
 </style>

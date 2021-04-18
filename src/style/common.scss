@@ -305,6 +305,7 @@ body {
 }
 
 .page-content {
+  position: relative;
   background-color: #fff;
   padding: 16px;
   @include page-container-border-radius();
@@ -313,6 +314,10 @@ body {
     content: '';
     clear: both;
     display: block;
+  }
+
+  .title {
+    margin-bottom: 16px;
   }
 }
 
@@ -324,4 +329,15 @@ body {
 .ivu-page {
   margin-top: 16px;
   float: right;
+}
+
+.description{
+  .ivu-col{
+    margin: 4px 0px;
+
+    &:nth-child(odd) {
+      text-align: right;
+      font-weight: 400;
+    }
+  }
 }

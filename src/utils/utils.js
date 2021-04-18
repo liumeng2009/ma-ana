@@ -1,4 +1,15 @@
-function hasPermission (permission, route) {
+export function debounce(fn, delay) {
+  let timeout = null;
+  return function () {
+    const args = arguments;
+    if (timeout) window.clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      fn.apply(this, args);
+    }, delay);
+  };
+}
+
+function hasPermission(permission, route) {
   if (route.meta && route.meta.permission) {
     let flag = false;
     for (let i = 0, len = permission.length; i < len; i++) {
@@ -12,7 +23,7 @@ function hasPermission (permission, route) {
   return true;
 }
 
-export function filterAsyncRouter (routerMap, roles) {
+export function filterAsyncRouter(routerMap, roles) {
   const accessedRouters = routerMap.filter(route => {
     if (hasPermission(roles.menuAuthList, route)) {
       if (route.children && route.children.length) {
@@ -25,7 +36,7 @@ export function filterAsyncRouter (routerMap, roles) {
   return accessedRouters;
 }
 
-export function findRouteFather (name, routes) {
+export function findRouteFather(name, routes) {
   let result = {};
   routes.forEach(ele => {
     console.log(ele);
@@ -46,11 +57,11 @@ export function getScrollTop() {
   let documentScrollTop = 0;
 
   if (document.body) {
-      bodyScrollTop = document.body.scrollTop;
+    bodyScrollTop = document.body.scrollTop;
   }
 
   if (document.documentElement) {
-      documentScrollTop = document.documentElement.scrollTop;
+    documentScrollTop = document.documentElement.scrollTop;
   }
 
   scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
@@ -60,8 +71,8 @@ export function getScrollTop() {
 
 export function scrollToBottom(cb) {
   if (getScrollTop() + getWindowHeight() === getScrollHeight()) {
-      console.log('reach bottom');
-      cb();
+    console.log('reach bottom');
+    cb();
   }
 }
 
@@ -71,11 +82,11 @@ export function getScrollHeight() {
   let documentScrollHeight = 0;
 
   if (document.body) {
-      bodyScrollHeight = document.body.scrollHeight;
+    bodyScrollHeight = document.body.scrollHeight;
   }
 
   if (document.documentElement) {
-      documentScrollHeight = document.documentElement.scrollHeight;
+    documentScrollHeight = document.documentElement.scrollHeight;
   }
 
   scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
@@ -86,9 +97,9 @@ export function getScrollHeight() {
 export function getWindowHeight() {
   let windowHeight = 0;
   if (document.compatMode === 'CSS1Compat') {
-      windowHeight = document.documentElement.clientHeight;
+    windowHeight = document.documentElement.clientHeight;
   } else {
-      windowHeight = document.body.clientHeight;
+    windowHeight = document.body.clientHeight;
   }
 
   return windowHeight;
@@ -104,3 +115,14 @@ export function getWindowWidth() {
 
   return windowWidth;
 }
+
+export const headerHeight = 50;
+export const contentPadding = 8 + 16;
+export const breadHeight = 21;
+export const contentMinHeight = 600;
+
+export const pageHeightInfo = {
+  headerHeight,
+  contentPadding,
+  breadHeight
+};

@@ -51,6 +51,53 @@ const basicColumns = [
   }
 ];
 
+const orderColumns = [
+  {
+    title: '订单编号',
+    key: 'id'
+  },
+  {
+    title: '平台名称',
+    key: 'platform'
+  },
+  {
+    title: '下单时间',
+    key: 'orderTime'
+  },
+  {
+    title: '商品数量',
+    key: 'orderCount'
+  },
+  {
+    title: '订单金额',
+    key: 'orderAmount'
+  },
+  {
+    title: '收货方式',
+    key: 'takeDelivery',
+    render: (h, params) => {
+      if (params.row.takeDelivery === 1) {
+        return h('span', { domProps: { innerText: '线上支付' } });
+      } else {
+        return h('span', { domProps: { innerText: '货到付款' } });
+      }
+    }
+  },
+  {
+    title: '收货日期',
+    key: 'takeDeliveryTime'
+  },
+  {
+    title: '收货地址',
+    key: 'address'
+  },
+  {
+    title: '操作',
+    slot: 'action'
+  }
+];
+
 export {
-  basicColumns
+  basicColumns,
+  orderColumns
 };

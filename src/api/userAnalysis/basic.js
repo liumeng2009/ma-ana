@@ -1,12 +1,12 @@
 import request from '@/utils/request';
 
 const api = {
-  basic: '/user-analysis/basic'
+  list: '/user-analysis/basic'
 };
 
 export function basicList () {
   return request({
-    url: api.basic,
+    url: api.list,
     method: 'get'
   });
 }
